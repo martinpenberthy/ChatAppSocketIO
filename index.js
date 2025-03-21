@@ -13,7 +13,13 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    //User connected
     console.log('a user connected');
+    //Handle a chat message event when it is emitted
+    socket.on('chat message', (msg) => {
+        console.log('message' + msg);
+    });
+    //User disconnected
     socket.on('disconnect', () => {
         console.log("user disconnected");
     });
