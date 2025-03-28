@@ -18,7 +18,9 @@ io.on('connection', (socket) => {
     //Handle a chat message event when it is emitted
     socket.on('chat message', (msg) => {
         console.log('message' + msg);
+        io.emit('chat message', msg);
     });
+
     //User disconnected
     socket.on('disconnect', () => {
         console.log("user disconnected");
